@@ -1,4 +1,6 @@
 import React from 'react';
+import CarTint from '../components/car-tint';
+import CarbonVSCeramic from '../components/carbon-vs-ceramic';
 import Hero from '../components/hero';
 
 import Layout from '../components/layout';
@@ -12,6 +14,8 @@ function IndexPage() {
         title="Home"
       />
       <Hero />
+      <CarTint />
+      <CarbonVSCeramic />
     </Layout>
   );
 }
