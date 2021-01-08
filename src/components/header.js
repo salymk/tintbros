@@ -1,79 +1,280 @@
-import { graphql, useStaticQuery, Link } from "gatsby";
-import React, { useState } from "react";
+import React, { useState, useEffect } from 'react';
+import { Link as LinkScroll } from 'react-scroll';
 
-function Header() {
-  const [isExpanded, toggleExpansion] = useState(false);
-  const { site } = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
+const Header = () => {
+  const [active, setActive] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  const handleToggle = () => {
+    setActive(!active);
+  };
+
+  const handleScroll = () => {
+    if (scrolled === true) {
+      setActive(!active);
     }
-  `);
+  };
 
+  useEffect(() => {
+    window.addEventListener('scroll', () => {
+      const isTop = window.scrollY < 560;
+      if (isTop !== true) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    });
+
+    return function cleanup() {
+      document.removeEventListener('scroll');
+    };
+  }, []);
   return (
-    <header className="bg-green-700">
-      <div className="flex flex-wrap items-center justify-between max-w-4xl p-4 mx-auto md:p-8">
-        <Link to="/">
-          <h1 className="flex items-center text-white no-underline">
-            <svg
-              className="w-8 h-8 mr-2 fill-current"
-              height="54"
-              viewBox="0 0 54 54"
-              width="54"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M13.5 22.1c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 38.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z" />
-            </svg>
-            <span className="text-xl font-bold tracking-tight">
-              {site.siteMetadata.title}
-            </span>
-          </h1>
-        </Link>
+    <>
+      {/* This example requires Tailwind CSS v2.0+ */}
+      <nav className="bg-gray-900 shadow-xl fixed w-full z-20 top-0">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between h-16">
+            <div className="flex">
+              <div className="-ml-2 mr-2 flex items-center md:hidden">
+                {/* Mobile menu button  */}
+                <button
+                  type="button"
+                  onClick={handleToggle}
+                  className="navbar-burger shadow-xl inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                  aria-expanded="false"
+                >
+                  <span className="sr-only">Open main menu</span>
+                  {/* <!-- Icon when menu is closed. -->
+                          <!--
+                  Heroicon name: menu
 
-        <button
-          className="items-center block px-3 py-2 text-white border border-white rounded md:hidden"
-          onClick={() => toggleExpansion(!isExpanded)}
-        >
-          <svg
-            className="w-3 h-3 fill-current"
-            viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <title>Menu</title>
-            <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-          </svg>
-        </button>
+                  Menu open: "hidden", Menu closed: "block"
+                  --> */}
+                  <svg
+                    className={`${active ? 'hidden' : 'block'} open h-6 w-6`}
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M4 6h16M4 12h16M4 18h16"
+                    />
+                  </svg>
 
-        <nav
-          className={`${
-            isExpanded ? `block` : `hidden`
-          } md:block md:items-center w-full md:w-auto`}
+                  <span className="sr-only">Close main menu</span>
+                  {/* <!-- Icon when menu is open. -->
+                          <!--
+                  Heroicon name: x
+
+                  Menu open: "block", Menu closed: "hidden"
+                  --> */}
+                  <svg
+                    className={`${active ? 'block' : 'hidden'} close h-6 w-6`}
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <div className="flex-shrink-0 flex items-center">
+                <LinkScroll
+                  activeClass="no-active"
+                  to="home"
+                  spy
+                  smooth
+                  offset={-100}
+                  duration={1000}
+                  className="cursor-pointer text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                >
+                  <img
+                    className="block lg:hidden h-8 w-auto"
+                    src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
+                    alt="Workflow"
+                  />
+                  <img
+                    className="hidden lg:block h-8 w-auto"
+                    src="https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg"
+                    alt="Workflow"
+                  />
+                </LinkScroll>
+              </div>
+              <div className="hidden md:ml-6 md:flex md:items-center md:space-x-4">
+                {/* <!-- Current: "bg-gray-700 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" --> */}
+                <LinkScroll
+                  activeClass="active"
+                  to="services"
+                  spy
+                  smooth
+                  offset={-100}
+                  duration={1000}
+                  className="cursor-pointer text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                >
+                  Services
+                </LinkScroll>
+                <LinkScroll
+                  activeClass="active"
+                  to="prices"
+                  spy
+                  smooth
+                  offset={-100}
+                  duration={1000}
+                  className="cursor-pointer text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                >
+                  Prices
+                </LinkScroll>
+                <LinkScroll
+                  activeClass="active"
+                  to="reviews"
+                  spy
+                  smooth
+                  offset={-100}
+                  duration={1000}
+                  className="cursor-pointer text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                >
+                  Reviews
+                </LinkScroll>
+                <LinkScroll
+                  activeClass="active"
+                  to="contact"
+                  spy
+                  smooth
+                  offset={-100}
+                  duration={1000}
+                  className="cursor-pointer text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                >
+                  Contact
+                </LinkScroll>
+                <LinkScroll
+                  activeClass="active"
+                  to="faq"
+                  spy
+                  smooth
+                  offset={-100}
+                  duration={1000}
+                  className="cursor-pointer text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                >
+                  FAQ
+                </LinkScroll>
+              </div>
+            </div>
+            <div className="flex items-center">
+              <div className="flex-shrink-0">
+                <button
+                  type="button"
+                  className="relative inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm sm:text-md font-extrabold rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-red-800 focus:ring-red-500"
+                >
+                  <svg
+                    className="h-5 sm:h-6 fill-current mr-2"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                    />
+                  </svg>
+
+                  <span>Call Now</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <span className="sr-only">Mobile menu</span>
+        {/* <!--
+      Mobile menu, toggle classes based on menu state.
+
+      Menu open: "block", Menu closed: "hidden"
+      --> */}
+        <div
+          className={`${active ? 'block' : 'hidden'} mobile-menu  md:hidden `}
         >
-          {[
-            {
-              route: `/about`,
-              title: `About`,
-            },
-            {
-              route: `/contact`,
-              title: `Contact`,
-            },
-          ].map((link) => (
-            <Link
-              className="block mt-4 text-white no-underline md:inline-block md:mt-0 md:ml-6"
-              key={link.title}
-              to={link.route}
+          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col">
+            {/* <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" --> */}
+            <LinkScroll
+              onClick={handleScroll}
+              activeClass="active"
+              to="services"
+              spy
+              smooth
+              offset={-100}
+              duration={1000}
+              className="cursor-pointer text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
             >
-              {link.title}
-            </Link>
-          ))}
-        </nav>
-      </div>
-    </header>
+              Services
+            </LinkScroll>
+            <LinkScroll
+              onClick={handleScroll}
+              activeClass="active"
+              to="prices"
+              spy
+              smooth
+              offset={-100}
+              duration={1000}
+              className="cursor-pointer text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+            >
+              Prices
+            </LinkScroll>
+            <LinkScroll
+              onClick={handleScroll}
+              activeClass="active"
+              to="reviews"
+              spy
+              smooth
+              offset={-100}
+              duration={1000}
+              className="cursor-pointer text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+            >
+              Reviews
+            </LinkScroll>
+            <LinkScroll
+              onClick={handleScroll}
+              activeClass="active"
+              to="contact"
+              spy
+              smooth
+              offset={-100}
+              duration={1000}
+              className="cursor-pointer text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+            >
+              Contact
+            </LinkScroll>
+            <LinkScroll
+              onClick={handleScroll}
+              activeClass="active"
+              to="faq"
+              spy
+              smooth
+              offset={-100}
+              duration={1000}
+              className="cursor-pointer text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+            >
+              FAQ
+            </LinkScroll>
+          </div>
+        </div>
+      </nav>
+    </>
   );
-}
+};
 
 export default Header;
