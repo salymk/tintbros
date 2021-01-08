@@ -5,9 +5,9 @@ const fullConfig = resolveConfig(tailwindConfig);
 
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Tailwind`,
-    description: `Gatsby starter styled with Tailwind`,
-    author: `@taylorbryant`,
+    title: `Tint Bros`,
+    description: `Car tinting company in Aurora, Colorado. We specialize in carbon and ceramic tinting.`,
+    author: `Idris Akbar`,
   },
   plugins: [
     `gatsby-plugin-eslint`,
@@ -15,7 +15,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-tailwind`,
+        name: `Tint Bros`,
         short_name: `starter`,
         start_url: `/`,
         background_color: fullConfig.theme.colors.white,
