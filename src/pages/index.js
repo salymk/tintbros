@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 
-import Layout from "../components/layout";
-import SEO from "../components/seo";
-import catAndHumanIllustration from "../images/cat-and-human-illustration.svg";
+import Layout from '../components/layout';
+import SEO from '../components/seo';
+import catAndHumanIllustration from '../images/cat-and-human-illustration.svg';
 
 function IndexPage() {
   return (
