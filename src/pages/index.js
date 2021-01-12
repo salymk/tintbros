@@ -14,8 +14,6 @@ function IndexPage() {
         title="Home"
       />
       <Hero />
-      <CarTint />
-      <CarbonVSCeramic />
     </Layout>
   );
 }
