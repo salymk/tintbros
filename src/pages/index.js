@@ -14,6 +14,7 @@ function IndexPage() {
         title="Home"
       />
       <Hero />
+      <CarTint />
     </Layout>
   );
 }
