@@ -12,6 +12,11 @@ const CarTint = () => {
             features {
               title
               subtitle
+              icon {
+                id
+                altText
+                sourceUrl
+              }
             }
           }
         }
@@ -20,6 +25,8 @@ const CarTint = () => {
   `);
 
   const { title, subtitle, features } = data.wpPage.sections.automotiveTint;
+
+  console.log(features.map((feature) => feature.icon));
 
   return (
     <div id="services" className="bg-white">
@@ -34,7 +41,7 @@ const CarTint = () => {
           {features.map((feature) => (
             <div className="flex">
               {/* <!-- Heroicon name: check --> */}
-              <svg
+              {/* <svg
                 className="flex-shrink-0 h-6 w-6 text-green-500"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -48,7 +55,13 @@ const CarTint = () => {
                   strokeWidth="2"
                   d="M5 13l4 4L19 7"
                 />
-              </svg>
+              </svg> */}
+
+              <img
+                className="flex-shrink-0 h-6 w-6 text-green-500"
+                src={feature.icon.sourceUrl}
+                alt={feature.icon.sourceUrl}
+              />
               <div className="ml-3">
                 <dt className="text-lg leading-6 font-medium text-gray-900">
                   {feature.title}
