@@ -1,8 +1,13 @@
+/* eslint-disable */
+
 module.exports = {
   purge: ['./src/**/*.js'],
   theme: {
     extend: {},
   },
   variants: {},
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/aspect-ratio'),
+  ],
 };
