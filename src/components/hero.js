@@ -1,7 +1,9 @@
+/* eslint-disable */
+
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql, useStaticQuery } from 'gatsby';
-import tintedlambo from '../images/tintedlambo.jpg';
 
 const Hero = () => {
   const data = useStaticQuery(graphql`
@@ -31,7 +33,7 @@ const Hero = () => {
     image,
   } = data.wpPage.sections.hero;
 
-  console.log(data.wpPage.sections.hero.title);
+  console.log(title);
 
   return (
     <div className="relative bg-white overflow-hidden mt-12">
