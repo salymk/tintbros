@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link as LinkScroll } from 'react-scroll';
 
 const Footer = () => (
   <>
@@ -9,39 +10,72 @@ const Footer = () => (
           aria-label="Footer"
         >
           <div className="px-5 py-2">
-            <a href="#" className="text-base text-gray-300 hover:text-white">
-              About
-            </a>
-          </div>
-
-          <div className="px-5 py-2">
-            <a href="#" className="text-base text-gray-300 hover:text-white">
-              Blog
-            </a>
-          </div>
-
-          <div className="px-5 py-2">
-            <a href="#" className="text-base text-gray-300 hover:text-white">
-              Jobs
-            </a>
-          </div>
-
-          <div className="px-5 py-2">
-            <a href="#" className="text-base text-gray-300 hover:text-white">
-              Press
-            </a>
-          </div>
-
-          <div className="px-5 py-2">
-            <a href="#" className="text-base text-gray-300 hover:text-white">
-              Accessibility
-            </a>
-          </div>
-
-          <div className="px-5 py-2">
-            <a href="#" className="text-base text-gray-300 hover:text-white">
-              Partners
-            </a>
+            <LinkScroll
+              activeClass="active"
+              to="home"
+              spy
+              smooth
+              offset={-100}
+              duration={1000}
+              className="cursor-pointer text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+            >
+              Home
+            </LinkScroll>
+            <LinkScroll
+              activeClass="active"
+              to="services"
+              spy
+              smooth
+              offset={-100}
+              duration={1000}
+              className="cursor-pointer text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+            >
+              Services
+            </LinkScroll>
+            <LinkScroll
+              activeClass="active"
+              to="prices"
+              spy
+              smooth
+              offset={-100}
+              duration={1000}
+              className="cursor-pointer text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+            >
+              Prices
+            </LinkScroll>
+            <LinkScroll
+              activeClass="active"
+              to="reviews"
+              spy
+              smooth
+              offset={-100}
+              duration={1000}
+              className="cursor-pointer text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+            >
+              Reviews
+            </LinkScroll>
+            <LinkScroll
+              activeClass="active"
+              to="contact"
+              spy
+              smooth
+              offset={-100}
+              duration={1000}
+              className="cursor-pointer text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+            >
+              Contact
+            </LinkScroll>
+            <LinkScroll
+              activeClass="active"
+              to="faq"
+              spy
+              smooth
+              offset={-100}
+              duration={1000}
+              className="cursor-pointer text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+            >
+              FAQ
+            </LinkScroll>
           </div>
         </nav>
         <div className="mt-8 flex justify-center space-x-6">
