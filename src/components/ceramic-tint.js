@@ -28,8 +28,6 @@ const CeramicTint = () => {
   `);
   const { title, subtitle, features, image } = data.wpPage.sections.ceramicTint;
 
-  console.log(features[0]);
-
   return (
     <div className="relative mt-12 sm:mt-16 lg:mt-24">
       <div className="lg:grid lg:grid-flow-row-dense lg:grid-cols-2 lg:gap-8 lg:items-center">

@@ -15,8 +15,6 @@ const CarbonVSCeramic = () => {
     }
   `);
 
-  console.log(data);
-
   const { title, subtitle } = data.wpPage.sections.carbonVsCeramic;
 
   return (

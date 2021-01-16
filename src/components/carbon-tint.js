@@ -28,8 +28,6 @@ const CarbonTint = () => {
   `);
   const { title, subtitle, features, image } = data.wpPage.sections.carbonTint;
 
-  console.log(features[0]);
-
   return (
     <div className="relative mt-12 lg:mt-24 lg:grid lg:grid-cols-2 lg:gap-8 lg:items-center">
       <div className="relative">
