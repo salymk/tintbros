@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link as LinkScroll } from 'react-scroll';
 import { graphql, useStaticQuery } from 'gatsby';
-import logoHeader from '../images/logo-header.svg';
 import boxLogo from '../images/box-logo.svg';
 
 const Header = () => {
@@ -113,7 +112,7 @@ const Header = () => {
               <div className="flex-shrink-0 flex items-center">
                 <LinkScroll
                   activeClass="no-active"
-                  to="home"
+                  to="Home"
                   spy
                   smooth
                   offset={-100}
@@ -155,76 +154,19 @@ const Header = () => {
                 </LinkScroll>
               </div>
               <div className="hidden md:ml-6 md:flex md:items-center md:space-x-4">
-                {items.map((item) => (
+                {items.map((i) => (
                   <LinkScroll
                     activeClass="active"
-                    to={item.item}
+                    to={i.item}
                     spy
                     smooth
                     offset={-100}
                     duration={1000}
                     className="cursor-pointer text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                   >
-                    {item.item}
+                    {i.item}
                   </LinkScroll>
                 ))}
-
-                {/* <!-- Current: "bg-gray-700 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" --> */}
-                {/* <LinkScroll
-                  activeClass="active"
-                  to="services"
-                  spy
-                  smooth
-                  offset={-100}
-                  duration={1000}
-                  className="cursor-pointer text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                >
-                  Services
-                </LinkScroll>
-                <LinkScroll
-                  activeClass="active"
-                  to="prices"
-                  spy
-                  smooth
-                  offset={-100}
-                  duration={1000}
-                  className="cursor-pointer text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                >
-                  Prices
-                </LinkScroll>
-                <LinkScroll
-                  activeClass="active"
-                  to="reviews"
-                  spy
-                  smooth
-                  offset={-100}
-                  duration={1000}
-                  className="cursor-pointer text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                >
-                  Reviews
-                </LinkScroll>
-                <LinkScroll
-                  activeClass="active"
-                  to="contact"
-                  spy
-                  smooth
-                  offset={-100}
-                  duration={1000}
-                  className="cursor-pointer text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                >
-                  Contact
-                </LinkScroll>
-                <LinkScroll
-                  activeClass="active"
-                  to="faq"
-                  spy
-                  smooth
-                  offset={-100}
-                  duration={1000}
-                  className="cursor-pointer text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                >
-                  FAQ
-                </LinkScroll> */}
               </div>
             </div>
             <div className="flex items-center">
@@ -265,66 +207,20 @@ const Header = () => {
         >
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col">
             {/* <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" --> */}
-            <LinkScroll
-              onClick={handleScroll}
-              activeClass="active"
-              to="services"
-              spy
-              smooth
-              offset={-100}
-              duration={1000}
-              className="cursor-pointer text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-            >
-              Services
-            </LinkScroll>
-            <LinkScroll
-              onClick={handleScroll}
-              activeClass="active"
-              to="prices"
-              spy
-              smooth
-              offset={-100}
-              duration={1000}
-              className="cursor-pointer text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-            >
-              Prices
-            </LinkScroll>
-            <LinkScroll
-              onClick={handleScroll}
-              activeClass="active"
-              to="reviews"
-              spy
-              smooth
-              offset={-100}
-              duration={1000}
-              className="cursor-pointer text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-            >
-              Reviews
-            </LinkScroll>
-            <LinkScroll
-              onClick={handleScroll}
-              activeClass="active"
-              to="contact"
-              spy
-              smooth
-              offset={-100}
-              duration={1000}
-              className="cursor-pointer text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-            >
-              Contact
-            </LinkScroll>
-            <LinkScroll
-              onClick={handleScroll}
-              activeClass="active"
-              to="faq"
-              spy
-              smooth
-              offset={-100}
-              duration={1000}
-              className="cursor-pointer text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-            >
-              FAQ
-            </LinkScroll>
+            {items.map((i) => (
+              <LinkScroll
+                onClick={handleScroll}
+                activeClass="active"
+                to={i.item}
+                spy
+                smooth
+                offset={-100}
+                duration={1000}
+                className="cursor-pointer text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+              >
+                {i.item}
+              </LinkScroll>
+            ))}
           </div>
         </div>
       </nav>
