@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link as LinkScroll } from 'react-scroll';
+import { graphql, useStaticQuery } from 'gatsby';
+import logoHeader from '../images/logo-header.svg';
+import boxLogo from '../images/box-logo.svg';
 
 const Header = () => {
   const [active, setActive] = useState(false);
@@ -29,6 +32,22 @@ const Header = () => {
       document.removeEventListener('scroll');
     };
   }, []);
+
+  const data = useStaticQuery(graphql`
+    query {
+      wpPage {
+        sections {
+          menuItems {
+            items {
+              item
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  const { items } = data.wpPage.sections.menuItems;
   return (
     <>
       {/* This example requires Tailwind CSS v2.0+ */}
@@ -101,7 +120,7 @@ const Header = () => {
                   duration={1000}
                   className="cursor-pointer text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                 >
-                  <img
+                  {/* <img
                     className="block lg:hidden h-8 w-auto"
                     src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
                     alt="Workflow"
@@ -110,12 +129,48 @@ const Header = () => {
                     className="hidden lg:block h-8 w-auto"
                     src="https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg"
                     alt="Workflow"
+                  /> */}
+
+                  <img
+                    className="block lg:hidden h-10 w-auto"
+                    src={boxLogo}
+                    alt="box header"
                   />
+
+                  <div className="hidden lg:block">
+                    <div className="flex items-center">
+                      <img
+                        className="h-10 w-auto"
+                        src={boxLogo}
+                        alt="box header"
+                      />
+
+                      <h2 className=" h-8 w-auto">
+                        <span className="text-xl text-white font-bold">
+                          Tint Bros
+                        </span>
+                      </h2>
+                    </div>
+                  </div>
                 </LinkScroll>
               </div>
               <div className="hidden md:ml-6 md:flex md:items-center md:space-x-4">
+                {items.map((item) => (
+                  <LinkScroll
+                    activeClass="active"
+                    to={item.item}
+                    spy
+                    smooth
+                    offset={-100}
+                    duration={1000}
+                    className="cursor-pointer text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                  >
+                    {item.item}
+                  </LinkScroll>
+                ))}
+
                 {/* <!-- Current: "bg-gray-700 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" --> */}
-                <LinkScroll
+                {/* <LinkScroll
                   activeClass="active"
                   to="services"
                   spy
@@ -169,7 +224,7 @@ const Header = () => {
                   className="cursor-pointer text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                 >
                   FAQ
-                </LinkScroll>
+                </LinkScroll> */}
               </div>
             </div>
             <div className="flex items-center">
