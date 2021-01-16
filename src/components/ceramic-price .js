@@ -24,6 +24,7 @@ const CeramicPrice = () => {
                 sourceUrl
               }
             }
+            ctaButton
           }
         }
       }
@@ -36,6 +37,7 @@ const CeramicPrice = () => {
     twoDoors,
     fourDoors,
     features,
+    ctaButton,
   } = data.wpPage.sections.ceramicPrice;
   return (
     <div className="flex flex-col rounded-lg shadow-lg overflow-hidden">
@@ -85,7 +87,7 @@ const CeramicPrice = () => {
             className="uppercase flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-red-600 hover:bg-red-700"
             aria-describedby="tier-standard"
           >
-            Get started
+            {ctaButton}
           </a>
         </div>
       </div>
