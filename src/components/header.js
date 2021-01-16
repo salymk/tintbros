@@ -192,7 +192,7 @@ const Header = () => {
                     />
                   </svg>
 
-                  <span>Call Now</span>
+                  <span className="uppercase">Call Now</span>
                 </button>
               </div>
             </div>
