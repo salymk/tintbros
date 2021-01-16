@@ -9,7 +9,7 @@ const Footer = () => (
           className="-mx-5 -my-2 flex flex-wrap justify-center"
           aria-label="Footer"
         >
-          <div className="px-5 py-2">
+          <div className="px-5 py-2 flex flex-wrap justify-center">
             <LinkScroll
               activeClass="active"
               to="home"
