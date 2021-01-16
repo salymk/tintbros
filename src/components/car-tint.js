@@ -7,6 +7,7 @@ const CarTint = () => {
       wpPage {
         sections {
           automotiveTint {
+            to
             title
             subtitle
             features {
@@ -24,12 +25,10 @@ const CarTint = () => {
     }
   `);
 
-  const { title, subtitle, features } = data.wpPage.sections.automotiveTint;
-
-  console.log(features.map((feature) => feature.icon));
+  const { to, title, subtitle, features } = data.wpPage.sections.automotiveTint;
 
   return (
-    <div id="services" className="bg-white">
+    <div id={to} className="bg-white">
       <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:py-20 lg:px-8">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">

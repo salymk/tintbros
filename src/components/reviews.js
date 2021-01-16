@@ -7,6 +7,7 @@ const Reviews = () => {
       wpPage {
         sections {
           reviews {
+            to
             sectionTitle
           }
         }
@@ -14,7 +15,7 @@ const Reviews = () => {
     }
   `);
 
-  const { sectionTitle } = data.wpPage.sections.reviews;
+  const { to, sectionTitle } = data.wpPage.sections.reviews;
 
   return (
     <section>
@@ -22,7 +23,7 @@ const Reviews = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <p
-              id="reviews"
+              id={to}
               className="mt-1 mb-10 md:mb-20 text-3xl font-extrabold text-gray-900 sm:text-4xl"
             >
               {sectionTitle}

@@ -1,5 +1,6 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
+
 import CallToAction from './call-to-action';
 
 const FAQ = () => {
@@ -8,6 +9,7 @@ const FAQ = () => {
       wpPage {
         sections {
           faq {
+            to
             title
             questions {
               question
@@ -18,9 +20,9 @@ const FAQ = () => {
       }
     }
   `);
-  const { title, questions } = data.wpPage.sections.faq;
+  const { to, title, questions } = data.wpPage.sections.faq;
   return (
-    <section id="faq">
+    <section id={to}>
       <div className="bg-gray-50">
         <div className="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
           <h2 className="capitalize text-3xl font-extrabold text-gray-900 text-center">
