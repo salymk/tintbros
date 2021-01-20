@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import React, { useState, useEffect } from 'react';
 import { Link as LinkScroll } from 'react-scroll';
 import { graphql, useStaticQuery } from 'gatsby';
@@ -113,8 +115,8 @@ const Header = () => {
                 <LinkScroll
                   activeClass="no-active"
                   to="Home"
-                  spy
-                  smooth
+                  spy={true}
+                  smooth={true}
                   offset={-100}
                   duration={1000}
                   className="cursor-pointer text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
@@ -154,12 +156,13 @@ const Header = () => {
                 </LinkScroll>
               </div>
               <div className="hidden md:ml-6 md:flex md:items-center md:space-x-4">
-                {items.map((i) => (
+                {items.map((i, index) => (
                   <LinkScroll
+                    key={index}
                     activeClass="active"
                     to={i.item}
-                    spy
-                    smooth
+                    spy={true}
+                    smooth={true}
                     offset={-100}
                     duration={1000}
                     className="cursor-pointer text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
@@ -207,8 +210,9 @@ const Header = () => {
         >
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col">
             {/* <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" --> */}
-            {items.map((i) => (
+            {items.map((i, index) => (
               <LinkScroll
+                key={index}
                 onClick={handleScroll}
                 activeClass="active"
                 to={i.item}

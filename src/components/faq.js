@@ -30,8 +30,8 @@ const FAQ = () => {
           </h2>
           <div className="mt-12">
             <dl className="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:grid-rows-2 md:gap-x-8 md:gap-y-12 lg:grid-cols-3">
-              {questions.map((question) => (
-                <div className="space-y-2">
+              {questions.map((question, index) => (
+                <div key={index} className="space-y-2">
                   <dt className="text-lg leading-6 font-medium text-gray-900">
                     {question.question}
                   </dt>

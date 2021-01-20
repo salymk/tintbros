@@ -37,8 +37,8 @@ const CarbonTint = () => {
         <p className="mt-3 text-lg text-gray-500">{subtitle}</p>
 
         <dl className="mt-10 space-y-10">
-          {features.map((feature) => (
-            <div className="flex">
+          {features.map((feature, index) => (
+            <div key={index} className="flex">
               <div className="flex-shrink-0">
                 <div className="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
                   <img

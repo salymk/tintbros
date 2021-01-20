@@ -37,8 +37,8 @@ const CarTint = () => {
           <p className="mt-4 text-lg text-gray-500">{subtitle}</p>
         </div>
         <dl className="mt-12 space-y-10 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 lg:grid-cols-4 lg:gap-x-8">
-          {features.map((feature) => (
-            <div className="flex">
+          {features.map((feature, index) => (
+            <div key={index} className="flex">
               {/* <!-- Heroicon name: check --> */}
               {/* <svg
                 className="flex-shrink-0 h-6 w-6 text-green-500"

@@ -39,8 +39,9 @@ const Footer = () => {
               >
                 Home
               </LinkScroll>
-              {items.map((i) => (
+              {items.map((i, index) => (
                 <LinkScroll
+                  key={index}
                   activeClass="active"
                   to={i.item}
                   spy
