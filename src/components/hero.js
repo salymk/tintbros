@@ -1,6 +1,10 @@
+/* eslint-disable */
+
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql, useStaticQuery } from 'gatsby';
+import { Link as LinkScroll } from 'react-scroll';
 
 const Hero = () => {
   const data = useStaticQuery(graphql`
@@ -68,20 +72,30 @@ const Hero = () => {
                 </p>
                 <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                   <div className="rounded-md shadow">
-                    <a
-                      href="#"
-                      className="uppercase w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-red-600 hover:bg-red-700 md:py-4 md:text-lg md:px-10"
+                    <LinkScroll
+                      activeClass="no-active"
+                      to="Schedule"
+                      spy={true}
+                      smooth={true}
+                      offset={-100}
+                      duration={1000}
+                      className="cursor-pointer uppercase w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-red-600 hover:bg-red-700 md:py-4 md:text-lg md:px-10"
                     >
                       {bookBtn}
-                    </a>
+                    </LinkScroll>
                   </div>
                   <div className="mt-3 sm:mt-0 sm:ml-3">
-                    <a
-                      href="#"
-                      className="uppercase w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-red-700 bg-red-100 hover:bg-red-200 md:py-4 md:text-lg md:px-10"
+                    <LinkScroll
+                      activeClass="no-active"
+                      to="Services"
+                      spy={true}
+                      smooth={true}
+                      offset={-100}
+                      duration={1000}
+                      className="cursor-pointer uppercase w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-red-700 bg-red-100 hover:bg-red-200 md:py-4 md:text-lg md:px-10"
                     >
                       {learnBtn}
-                    </a>
+                    </LinkScroll>
                   </div>
                 </div>
               </div>
