@@ -73,7 +73,7 @@ const Hero = () => {
                 <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                   <div className="rounded-md shadow">
                     <LinkScroll
-                      activeClass="no-active"
+                      activeClass="active"
                       to="Schedule"
                       spy={true}
                       smooth={true}

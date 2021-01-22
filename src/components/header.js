@@ -113,7 +113,7 @@ const Header = () => {
               </div>
               <div className="flex-shrink-0 flex items-center">
                 <LinkScroll
-                  activeClass="no-active"
+                  activeClass="active"
                   to="Home"
                   spy={true}
                   smooth={true}

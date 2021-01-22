@@ -1,5 +1,6 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
+import { Link as LinkScroll } from 'react-scroll';
 
 const CarbonPrice = () => {
   const data = useStaticQuery(graphql`
@@ -82,13 +83,17 @@ const CarbonPrice = () => {
           ))}
         </ul>
         <div className="rounded-md shadow">
-          <a
-            href="#"
-            className="uppercase flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-red-600 hover:bg-red-700"
-            aria-describedby="tier-standard"
+          <LinkScroll
+            activeClass="no-active"
+            to="Schedule"
+            spy
+            smooth
+            offset={-100}
+            duration={1000}
+            className="cursor-pointer uppercase flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-red-600 hover:bg-red-700"
           >
             {ctaButton}
-          </a>
+          </LinkScroll>
         </div>
       </div>
     </div>

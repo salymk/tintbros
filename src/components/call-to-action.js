@@ -1,5 +1,6 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
+import { Link as LinkScroll } from 'react-scroll';
 
 const CallToAction = () => {
   const data = useStaticQuery(graphql`
@@ -46,12 +47,18 @@ const CallToAction = () => {
               <p className="mt-4 text-lg leading-6 text-orange-50">
                 {subheadline}
               </p>
-              <a
-                href="#"
-                className="uppercase mt-8 bg-white border border-transparent rounded-md shadow py-3 px-6 inline-flex items-center text-base font-medium text-red-600 hover:text-red-500"
+
+              <LinkScroll
+                activeClass="no-active"
+                to="Schedule"
+                spy
+                smooth
+                offset={-100}
+                duration={1000}
+                className="cursor-pointer uppercase mt-8 bg-white border border-transparent rounded-md shadow py-3 px-6 inline-flex items-center text-base font-medium text-red-600 hover:text-red-500"
               >
                 {ctaButton}
-              </a>
+              </LinkScroll>
             </div>
           </div>
           <div className="-mt-6 aspect-w-5 aspect-h-3 md:aspect-w-2 md:aspect-h-1">
