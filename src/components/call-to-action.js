@@ -44,9 +44,7 @@ const CallToAction = () => {
                 <span className="block">{headline.titleOne}</span>
                 <span className="block text-red-900">{headline.titleTwo}</span>
               </h2>
-              <p className="mt-4 text-lg leading-6 text-orange-50">
-                {subheadline}
-              </p>
+              <p className="mt-4 text-lg leading-6 text-white">{subheadline}</p>
 
               <LinkScroll
                 activeClass="no-active"
