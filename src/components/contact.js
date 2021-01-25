@@ -2,6 +2,8 @@
 
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
+import { InlineWidget } from "react-calendly";
+
 
 const Contact = () => {
   const data = useStaticQuery(graphql`
@@ -91,9 +93,13 @@ const Contact = () => {
               </dl>
             </div>
           </div>
-          <div id="Schedule" className="bg-white py-16 px-4 sm:px-6 lg:col-span-3 lg:py-24 lg:px-8 xl:pl-12">
+          <div id="Schedule" className="bg-white pt-6 px-4 sm:px-6 lg:col-span-3 lg:px-8 xl:pl-12">
             <div className="max-w-lg mx-auto lg:max-w-none">
-              <form action="#" method="POST" className="grid grid-cols-1 gap-y-6">
+            <InlineWidget url="https://calendly.com/thetintbrosllc?primary_color=ff0000" styles={{
+  height: '1025px', width: '750px'
+}}/>
+
+              {/* <form action="#" method="POST" className="grid grid-cols-1 gap-y-6">
               <div>
                 <label htmlFor="full_name" className="sr-only">
                   Full name
@@ -202,7 +208,7 @@ const Contact = () => {
                   Submit
                 </button>
               </div>
-            </form>
+            </form> */}
             </div>
           </div>
         </div>
