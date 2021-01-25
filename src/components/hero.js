@@ -86,7 +86,7 @@ const Hero = () => {
                   </div>
                   <div className="mt-3 sm:mt-0 sm:ml-3">
                     <LinkScroll
-                      activeClass="no-active"
+                      activeClass="active"
                       to="Services"
                       spy={true}
                       smooth={true}
