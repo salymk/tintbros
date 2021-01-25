@@ -1,35 +1,77 @@
 /* eslint-disable */
 
-import React from "react";
-import CarTint from "../components/car-tint";
-import CarbonVSCeramic from "../components/carbon-vs-ceramic";
-import Hero from "../components/hero";
-import Products from "../components/products";
+import React from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
 
-import Layout from "../components/layout";
-import SEO from "../components/seo";
-import Pricing from "../components/pricing";
-import Reviews from "../components/reviews";
-import Contact from "../components/contact";
-import FAQ from "../components/faq";
-import Services from "../components/services";
+import Seo from 'gatsby-plugin-wpgraphql-seo';
+
+import CarTint from '../components/car-tint';
+import CarbonVSCeramic from '../components/carbon-vs-ceramic';
+import Hero from '../components/hero';
+import Products from '../components/products';
+
+import Layout from '../components/layout';
+import Pricing from '../components/pricing';
+import Reviews from '../components/reviews';
+import Contact from '../components/contact';
+import FAQ from '../components/faq';
+import Services from '../components/services';
+import About from '../components/about';
 
 function IndexPage() {
+  const data = useStaticQuery(graphql`
+    query {
+      wpPage(uri: {eq: "/"}) {
+        nodeType
+        title
+        uri
+        seo {
+          title
+          metaDesc
+          focuskw
+          metaKeywords
+          metaRobotsNoindex
+          metaRobotsNofollow
+          opengraphTitle
+          opengraphDescription
+          opengraphImage {
+            altText
+            sourceUrl
+            srcSet
+          }
+          twitterTitle
+          twitterDescription
+          twitterImage {
+            altText
+            sourceUrl
+            srcSet
+          }
+          canonical
+          cornerstone
+          schema {
+            articleType
+            pageType
+            raw
+          }
+        }
+      }
+    }
+  `);
   return (
-    <Layout>
-      <SEO
-        keywords={[`gatsby`, `tailwind`, `react`, `tailwindcss`]}
-        title="Home"
-      />
-      <Hero />
-      <CarTint />
-      <Products />
-      <Pricing />
-      <Services />
-      <Reviews />
-      <Contact />
-      <FAQ />
-    </Layout>
+    <>
+      <Seo post={data.wpPage} />
+      <Layout>
+        <Hero />
+        <CarTint />
+        <Products />
+        <Pricing />
+        <Services />
+        <Reviews />
+        <Contact />
+        <About />
+        <FAQ />
+      </Layout>
+    </>
   );
 }
 
