@@ -50,7 +50,7 @@ const Services = () => {
         </h2>
         <p className="mt-4 m-4 text-lg text-gray-500">{subtitle}</p>
       </div>
-      <section className="bg-gray-900 max-w-7xl mb-12">
+      <section className="bg-gray-900 mb-12">
         <div className=" max-w-5xl mx-auto grid md:grid-cols-2 md:px-6 lg:px-8">
           {/* container 1 */}
           <div className="pb-20 py-12 px-4 sm:px-6 md:flex md:flex-col md:py-16 md:pl-0 md:pr-10 md:border-r-8 md:border-white lg:pr-16">
