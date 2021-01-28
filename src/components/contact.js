@@ -95,8 +95,8 @@ const Contact = () => {
           </div>
           <div id="Schedule" className="bg-white pt-6 px-4 sm:px-6 lg:col-span-3 lg:px-8 xl:pl-12">
             <div className="max-w-lg mx-auto lg:max-w-none">
-            <InlineWidget url="https://calendly.com/thetintbrosllc?primary_color=ff0000" styles={{
-  height: '1025px', width: '750px'
+            <InlineWidget url="https://calendly.com/thetintbrosllc?primary_color=ff0000"  styles={{
+  height: '1095px'
 }}/>
 
               {/* <form action="#" method="POST" className="grid grid-cols-1 gap-y-6">
