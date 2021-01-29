@@ -1,5 +1,7 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
+import Img from 'gatsby-image';
+
 import { Link as LinkScroll } from 'react-scroll';
 
 const Services = () => {
@@ -13,7 +15,13 @@ const Services = () => {
             headlightTinting {
               image {
                 altText
-                sourceUrl
+                localFile {
+                  childImageSharp {
+                    fluid(maxWidth: 1600) {
+                      ...GatsbyImageSharpFluid
+                    }
+                  }
+                }
               }
               title
               price
@@ -23,7 +31,13 @@ const Services = () => {
             vinylWrap {
               image {
                 altText
-                sourceUrl
+                localFile {
+                  childImageSharp {
+                    fluid(maxWidth: 1600) {
+                      ...GatsbyImageSharpFluid
+                    }
+                  }
+                }
               }
               title
               price
@@ -55,9 +69,9 @@ const Services = () => {
           {/* container 1 */}
           <div className="pb-20 py-12 px-4 sm:px-6 md:flex md:flex-col md:py-16 md:pl-0 md:pr-10 md:border-r-8 md:border-white lg:pr-16">
             <div className="flex-shrink-0">
-              <img
+              <Img
                 className="rounded-lg h-auto shadow-md hover:shadow-lg"
-                src={headlightTinting.image.sourceUrl}
+                fluid={headlightTinting.image.localFile.childImageSharp.fluid}
                 alt={headlightTinting.image.altText}
               />
             </div>
@@ -95,9 +109,9 @@ const Services = () => {
           {/* container 2 */}
           <div className="pb-20 py-12 px-4 sm:px-6 md:flex-col md:py-16 md:pl-10 md:pr-0 lg:pl-16 md:border-l-8 md:border-white">
             <div className="flex-shrink-0">
-              <img
+              <Img
                 className="rounded-lg h-auto shadow-md hover:shadow-lg"
-                src={vinylWrap.image.sourceUrl}
+                fluid={vinylWrap.image.localFile.childImageSharp.fluid}
                 alt={vinylWrap.image.altText}
               />
             </div>

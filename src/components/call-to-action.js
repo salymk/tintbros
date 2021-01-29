@@ -1,5 +1,6 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
+import Img from 'gatsby-image';
 import { Link as LinkScroll } from 'react-scroll';
 
 const CallToAction = () => {
@@ -16,7 +17,13 @@ const CallToAction = () => {
             ctaButton
             image {
               altText
-              sourceUrl
+              localFile {
+                childImageSharp {
+                  fluid {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
+              }
             }
           }
         }
@@ -59,10 +66,10 @@ const CallToAction = () => {
               </LinkScroll>
             </div>
           </div>
-          <div className="-mt-6 aspect-w-5 aspect-h-3 md:aspect-w-2 md:aspect-h-1">
-            <img
+          <div className="-mt-6 aspect-w-5 md:aspect-w-2">
+            <Img
               className="transform translate-x-6 translate-y-6 rounded-md object-cover object-left-top sm:translate-x-16 lg:translate-y-20"
-              src={image.sourceUrl}
+              fluid={image.localFile.childImageSharp.fluid}
               alt={image.altText}
             />
           </div>

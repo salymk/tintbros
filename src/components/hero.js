@@ -1,9 +1,8 @@
-/* eslint-disable */
-
-
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { graphql, useStaticQuery } from 'gatsby';
+import Img from 'gatsby-image';
+
 import { Link as LinkScroll } from 'react-scroll';
 
 const Hero = () => {
@@ -19,7 +18,13 @@ const Hero = () => {
             learnBtn
             image {
               altText
-              sourceUrl
+              localFile {
+                childImageSharp {
+                  fluid(maxWidth: 1600) {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
+              }
             }
           }
         }
@@ -35,6 +40,8 @@ const Hero = () => {
     learnBtn,
     image,
   } = data.wpPage.sections.hero;
+
+  // const { srcSet } = image.localFile.childImageSharp.fluid;
 
   return (
     <section>
@@ -75,8 +82,8 @@ const Hero = () => {
                     <LinkScroll
                       activeClass="active"
                       to="Schedule"
-                      spy={true}
-                      smooth={true}
+                      spy
+                      smooth
                       offset={-100}
                       duration={1000}
                       className="cursor-pointer uppercase w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-red-600 hover:bg-red-700 md:py-4 md:text-lg md:px-10"
@@ -88,8 +95,8 @@ const Hero = () => {
                     <LinkScroll
                       activeClass="active"
                       to="Services"
-                      spy={true}
-                      smooth={true}
+                      spy
+                      smooth
                       offset={-100}
                       duration={1000}
                       className="cursor-pointer uppercase w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-red-700 bg-red-100 hover:bg-red-200 md:py-4 md:text-lg md:px-10"
@@ -103,9 +110,9 @@ const Hero = () => {
           </div>
         </div>
         <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 mt-4">
-          <img
+          <Img
             className="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full"
-            src={image.sourceUrl}
+            fluid={image.localFile.childImageSharp.fluid}
             alt={image.altText}
           />
         </div>

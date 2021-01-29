@@ -1,5 +1,6 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
+import Img from 'gatsby-image';
 
 const About = () => {
   const data = useStaticQuery(graphql`
@@ -11,7 +12,13 @@ const About = () => {
             description
             image {
               altText
-              sourceUrl
+              localFile {
+                childImageSharp {
+                  fluid {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
+              }
             }
           }
         }
@@ -32,10 +39,10 @@ const About = () => {
                 className="absolute inset-x-0 top-0 h-1/2 bg-white lg:hidden"
               />
               <div className="mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:p-0 lg:h-full">
-                <div className="aspect-w-10 aspect-h-6 rounded-xl shadow-xl overflow-hidden sm:aspect-w-16 sm:aspect-h-12 lg:aspect-none lg:h-full">
-                  <img
+                <div className="aspect-w-10 rounded-xl shadow-xl overflow-hidden sm:aspect-w-16 lg:aspect-none lg:h-full">
+                  <Img
                     className="object-cover lg:h-full lg:w-full"
-                    src={image.sourceUrl}
+                    fluid={image.localFile.childImageSharp.fluid}
                     alt={image.altText}
                   />
                 </div>

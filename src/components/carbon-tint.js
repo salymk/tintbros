@@ -1,5 +1,6 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
+import Img from 'gatsby-image';
 
 const CarbonTint = () => {
   const data = useStaticQuery(graphql`
@@ -19,7 +20,13 @@ const CarbonTint = () => {
             }
             image {
               altText
-              sourceUrl
+              localFile {
+                childImageSharp {
+                  fluid(maxWidth: 1600) {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
+              }
             }
           }
         }
@@ -64,9 +71,9 @@ const CarbonTint = () => {
       <div className="mt-10 -mx-4 relative lg:mt-0" aria-hidden="true">
         <div className="relative mx-auto w-full rounded-lg shadow-lg lg:max-w-md hover:shadow-2xl">
           <div className="relative block w-full bg-white sm:rounded-lg overflow-hidden">
-            <img
+            <Img
               className="w-full "
-              src={image.sourceUrl}
+              fluid={image.localFile.childImageSharp.fluid}
               alt={image.altText}
             />
           </div>
