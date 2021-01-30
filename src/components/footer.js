@@ -11,6 +11,12 @@ const Footer = () => {
           footer {
             facebookLink
             instagramLink
+            copyright
+            salym {
+              reference
+              name
+              link
+            }
           }
           menuItems {
             items {
@@ -23,7 +29,12 @@ const Footer = () => {
   `);
 
   const { items } = data.wpPage.sections.menuItems;
-  const { facebookLink, instagramLink } = data.wpPage.sections.footer;
+  const {
+    facebookLink,
+    instagramLink,
+    copyright,
+    salym,
+  } = data.wpPage.sections.footer;
 
   return (
     <>
@@ -105,17 +116,17 @@ const Footer = () => {
             </a>
           </div>
           <p className="mt-8 text-center text-base text-gray-400">
-            &copy; 2021 The Tint Bros. All rights reserved.
+            &copy; {copyright}
           </p>
           <div className="flex-row sm:flex text-center items-baseline justify-center">
-            <p className="mt-2 text-gray-400">Website build & maintained by </p>
+            <p className="mt-2 text-gray-400">{salym.reference} </p>
             <a
               className="ml-2 text-red-500 hover:text-red-400"
-              href="https://www.linkedin.com/in/salym-akhmedov/"
+              href={salym.link}
               target="_blank"
               rel="noreferrer"
             >
-              Salym Akhmedov
+              {salym.name}
             </a>
           </div>
         </div>
