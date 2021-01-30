@@ -47,7 +47,7 @@ const CarbonTint = () => {
           {features.map((feature, index) => (
             <div key={index} className="flex">
               <div className="flex-shrink-0">
-                <div className="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                <div className="flex items-center justify-center h-12 w-12 rounded-md bg-red-500 text-white">
                   <img
                     className="flex-shrink-0 h-6 w-6"
                     src={feature.icon.sourceUrl}
