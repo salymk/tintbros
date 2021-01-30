@@ -7,7 +7,7 @@ const tailwindConfig = require('./tailwind.config.js');
 const fullConfig = resolveConfig(tailwindConfig);
 module.exports = {
   siteMetadata: {
-    title: `Tint Bros`,
+    title: `The Tint Bros`,
     description: `Car tinting company in Aurora, Colorado. We specialize in carbon and ceramic tinting.`,
     author: `Idris Akbar`,
   },
