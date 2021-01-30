@@ -41,8 +41,6 @@ const Hero = () => {
     image,
   } = data.wpPage.sections.hero;
 
-  // const { srcSet } = image.localFile.childImageSharp.fluid;
-
   return (
     <section>
       <div id={to} className="relative bg-white overflow-hidden mt-12">
