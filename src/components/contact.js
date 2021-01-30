@@ -1,9 +1,6 @@
-/* eslint-disable */
-
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-import { InlineWidget } from "react-calendly";
-
+import { InlineWidget } from 'react-calendly';
 
 const Contact = () => {
   const data = useStaticQuery(graphql`
@@ -20,17 +17,9 @@ const Contact = () => {
             }
             phone {
               number
-              icon {
-                altText
-                sourceUrl
-              }
             }
             email {
               email
-              icon {
-                altText
-                sourceUrl
-              }
             }
           }
         }
@@ -63,45 +52,104 @@ const Contact = () => {
               <dl className="mt-8 text-base text-gray-100">
                 <div>
                   <dt className="sr-only">Postal address</dt>
-                  <dd>
-                    <p>{address.street}</p>
-                    <p>{address.city}</p>
-                  </dd>
+                  <a
+                    className="hover:text-gray-400"
+                    href="https://www.google.com/maps/dir//the+tint+bros/@39.626994,-104.8204336,13z/data=!4m8!4m7!1m0!1m5!1m1!1s0x876c89f9d8685a35:0xcb8118637c876834!2m2!1d-104.7597737!2d39.6194989"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <dd className="flex">
+                      <svg
+                        className="h-6 w-6"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="current"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                        />
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                        />
+                      </svg>
+                      <div className="ml-3">
+                        <p>{address.street}</p>
+                        <p>{address.city}</p>
+                      </div>
+                    </dd>
+                  </a>
                 </div>
                 <div className="mt-6">
                   <dt className="sr-only">Phone number</dt>
-                  <a href={`tel:${phone.number}`} className="hover:text-gray-400">
-                  <dd className="flex">
-                    <img
-                      className="h-6 w-6"
-                      src={phone.icon.sourceUrl}
-                      alt={phone.icon.altText}
-                    />
-                    <span className="ml-3"> {phone.number}</span>
-                  </dd>
+                  <a
+                    href={`tel:${phone.number}`}
+                    className="hover:text-gray-400"
+                  >
+                    <dd className="flex">
+                      <svg
+                        className="h-6 w-6"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="current"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                        />
+                      </svg>
+                      <span className="ml-3"> {phone.number}</span>
+                    </dd>
                   </a>
                 </div>
                 <div className="mt-3">
                   <dt className="sr-only">Email</dt>
-                  <a href={`mailto:${email.email}`} className="hover:text-gray-400">
-                  <dd className="flex">
-                    <img
-                      className="h-6 w-6"
-                      src={email.icon.sourceUrl}
-                      alt={email.icon.altText}
-                    />
-                    <span className="ml-3"> {email.email} </span>
-                  </dd>
+                  <a
+                    href={`mailto:${email.email}`}
+                    className="hover:text-gray-400"
+                  >
+                    <dd className="flex">
+                      <svg
+                        className="h-6 w-6"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="current"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                        />
+                      </svg>
+                      <span className="ml-3"> {email.email} </span>
+                    </dd>
                   </a>
                 </div>
               </dl>
             </div>
           </div>
-          <div id="Schedule" className="bg-white pt-6 px-4 sm:px-6 lg:col-span-3 lg:px-8 xl:pl-12">
+          <div
+            id="Schedule"
+            className="bg-white pt-6 px-4 sm:px-6 lg:col-span-3 lg:px-8 xl:pl-12"
+          >
             <div className="max-w-lg mx-auto lg:max-w-none">
-            <InlineWidget url="https://calendly.com/thetintbrosllc?primary_color=ff0000"  styles={{
-  height: '1095px'
-}}/>
+              <InlineWidget
+                url="https://calendly.com/thetintbrosllc?primary_color=ff0000"
+                styles={{
+                  height: '1095px',
+                }}
+              />
 
               {/* <form action="#" method="POST" className="grid grid-cols-1 gap-y-6">
               <div>
