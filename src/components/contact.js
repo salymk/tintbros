@@ -70,6 +70,7 @@ const Contact = () => {
                 </div>
                 <div className="mt-6">
                   <dt className="sr-only">Phone number</dt>
+                  <a href={`tel:${phone.number}`} className="hover:text-gray-300">
                   <dd className="flex">
                     <img
                       className="h-6 w-6"
@@ -78,6 +79,7 @@ const Contact = () => {
                     />
                     <span className="ml-3"> {phone.number}</span>
                   </dd>
+                  </a>
                 </div>
                 <div className="mt-3">
                   <dt className="sr-only">Email</dt>
