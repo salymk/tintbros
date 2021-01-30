@@ -38,8 +38,8 @@ const Reviews = () => {
                 altText
                 localFile {
                   childImageSharp {
-                    fluid {
-                      ...GatsbyImageSharpFluid
+                    fixed(height: 100, width: 100) {
+                      ...GatsbyImageSharpFixed
                     }
                   }
                 }
@@ -69,15 +69,17 @@ const Reviews = () => {
         <div className="bg-gray-50 rounded-lg mb-10 lg:mb-20 shadow-lg mx-auto pb-12 pt-6 px-4 max-w-5xl sm:px-6 lg:px-8 lg:py-12">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-8">
             <div className="lg:col-span-2">
-              <ul className="space-y-12 sm:grid sm:grid-cols-2 sm:gap-12 sm:space-y-0 lg:gap-x-8">
+              <ul className="space-y-12 md:grid md:grid-cols-2 md:gap-12 md:space-y-0 lg:gap-x-8">
                 {customerReviews.map((review) => (
                   <li key={uuidv4()}>
                     <div className="flex items-center space-x-4 lg:space-x-6">
-                      <Img
-                        className="w-60 h-20 rounded-full"
-                        fluid={review.image.localFile.childImageSharp.fluid}
-                        alt={review.image.altText}
-                      />
+                      <div className=" h-full">
+                        <Img
+                          className="rounded-full object-cover"
+                          fixed={review.image.localFile.childImageSharp.fixed}
+                          alt={review.image.altText}
+                        />
+                      </div>
                       <div className="font-medium text-lg leading-6 space-y-1">
                         <h3 className="text-black font-bold">{review.name}</h3>
                         <div className="text-red-600 flex items-center">
