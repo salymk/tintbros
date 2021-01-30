@@ -7,6 +7,10 @@ const Footer = () => {
     query {
       wpPage {
         sections {
+          footer {
+            facebookLink
+            instagramLink
+          }
           menuItems {
             items {
               item
@@ -18,6 +22,7 @@ const Footer = () => {
   `);
 
   const { items } = data.wpPage.sections.menuItems;
+  const { facebookLink, instagramLink } = data.wpPage.sections.footer;
 
   return (
     <>
@@ -57,13 +62,14 @@ const Footer = () => {
           </nav>
           <div className="mt-8 flex justify-center space-x-6">
             <a
-              href="#"
+              href={facebookLink}
               className="text-gray-400 hover:text-gray-500"
               target="_blank"
+              rel="noreferrer"
             >
               <span className="sr-only">Facebook</span>
               <svg
-                className="h-6 w-6"
+                className="h-8 w-8"
                 fill="currentColor"
                 viewBox="0 0 24 24"
                 aria-hidden="true"
@@ -77,13 +83,14 @@ const Footer = () => {
             </a>
 
             <a
-              href="#"
+              href={instagramLink}
               className="text-gray-400 hover:text-gray-500"
               target="_blank"
+              rel="noreferrer"
             >
               <span className="sr-only">Instagram</span>
               <svg
-                className="h-6 w-6"
+                className="h-8 w-8"
                 fill="currentColor"
                 viewBox="0 0 24 24"
                 aria-hidden="true"
@@ -97,8 +104,19 @@ const Footer = () => {
             </a>
           </div>
           <p className="mt-8 text-center text-base text-gray-400">
-            &copy; 2020 Workflow, Inc. All rights reserved.
+            &copy; 2021 The Tint Bros. All rights reserved.
           </p>
+          <div className="flex-row sm:flex text-center items-baseline justify-center">
+            <p className="mt-2 text-gray-400">Website build & maintained by </p>
+            <a
+              className="ml-2 text-red-500 hover:text-red-400"
+              href="https://www.linkedin.com/in/salym-akhmedov/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Salym Akhmedov
+            </a>
+          </div>
         </div>
       </footer>
     </>
