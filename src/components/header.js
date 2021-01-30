@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link as LinkScroll } from 'react-scroll';
 import { graphql, useStaticQuery } from 'gatsby';
+import { v4 as uuidv4 } from 'uuid';
+
 import boxLogo from '../images/box-logo.svg';
 
 const Header = () => {
@@ -162,9 +164,9 @@ const Header = () => {
                 </LinkScroll>
               </div>
               <div className="hidden md:ml-6 md:flex md:items-center md:space-x-4">
-                {items.map((i, index) => (
+                {items.map((i) => (
                   <LinkScroll
-                    key={index}
+                    key={uuidv4()}
                     activeClass="active"
                     to={i.item}
                     spy
@@ -180,7 +182,6 @@ const Header = () => {
             </div>
             <div className="flex items-center">
               <div className="flex-shrink-0">
-                {/* TODO: Add custom field for number */}
                 <a href={`tel:${phoneCta.number}`}>
                   <button
                     type="button"
@@ -211,9 +212,9 @@ const Header = () => {
         >
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col">
             {/* <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" --> */}
-            {items.map((i, index) => (
+            {items.map((i) => (
               <LinkScroll
-                key={index}
+                key={uuidv4()}
                 onClick={handleScroll}
                 activeClass="active"
                 to={i.item}

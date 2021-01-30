@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link as LinkScroll } from 'react-scroll';
 import { graphql, useStaticQuery } from 'gatsby';
+import { v4 as uuidv4 } from 'uuid';
 
 const Footer = () => {
   const data = useStaticQuery(graphql`
@@ -44,9 +45,9 @@ const Footer = () => {
               >
                 Home
               </LinkScroll>
-              {items.map((i, index) => (
+              {items.map((i) => (
                 <LinkScroll
-                  key={index}
+                  key={uuidv4()}
                   activeClass="active"
                   to={i.item}
                   spy

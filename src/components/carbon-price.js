@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { Link as LinkScroll } from 'react-scroll';
+import { v4 as uuidv4 } from 'uuid';
 
 const CarbonPrice = () => {
   const data = useStaticQuery(graphql`
@@ -69,8 +70,8 @@ const CarbonPrice = () => {
       </div>
       <div className="flex-1 flex flex-col justify-between px-6 pt-6 pb-8 bg-white space-y-6 sm:p-10 sm:pt-6">
         <ul className="space-y-4">
-          {features.map((feature, index) => (
-            <li key={index} className="flex items-start">
+          {features.map((feature) => (
+            <li key={uuidv4()} className="flex items-start">
               <div className="flex-shrink-0">
                 <img
                   className="flex-shrink-0 h-6 w-6"
