@@ -73,7 +73,7 @@ const Reviews = () => {
                 {customerReviews.map((review) => (
                   <li key={uuidv4()}>
                     <div className="flex items-center space-x-4 lg:space-x-6">
-                      <div className=" h-full">
+                      <div className=" h-full shadow-xl">
                         <Img
                           className="rounded-full object-cover"
                           fixed={review.image.localFile.childImageSharp.fixed}
